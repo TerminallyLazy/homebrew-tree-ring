@@ -2,6 +2,7 @@ class TreeRing < Formula
   desc "Local-first memory lifecycle CLI for AI agents"
   homepage "https://terminallylazy.github.io/Tree-Ring-Memory/"
   url "https://github.com/TerminallyLazy/Tree-Ring-Memory/releases/download/v0.11.0/tree-ring-memory-0.11.0-darwin-arm64.tar.gz"
+  version "0.11.0"
   sha256 "9602603289173eeaf72386f0443be44f6b5a153b4e1a7342e65428ac1ea4ae39"
   license "MIT"
 
