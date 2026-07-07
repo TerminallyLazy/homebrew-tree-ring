@@ -1,18 +1,25 @@
-# TerminallyLazy Tree-ring
+# Homebrew Tap For Tree Ring Memory
 
-## How do I install these formulae?
+Install Tree Ring Memory from the launch-preview macOS ARM64 release:
 
-`brew install terminallylazy/tree-ring/<formula>`
-
-Or `brew tap terminallylazy/tree-ring` and then `brew install <formula>`.
-
-Or, in a `brew bundle` `Brewfile`:
-
-```ruby
-tap "terminallylazy/tree-ring"
-brew "<formula>"
+```bash
+brew tap TerminallyLazy/tree-ring
+brew install tree-ring
 ```
 
-## Documentation
+Then initialize a local memory root:
 
-`brew help`, `man brew` or check [Homebrew's documentation](https://docs.brew.sh).
+```bash
+tree-ring init
+tree-ring tui
+```
+
+Tree Ring Memory is a framework-agnostic, local-first memory lifecycle layer for
+AI agents.
+
+- Website: <https://terminallylazy.github.io/Tree-Ring-Memory/>
+- Repository: <https://github.com/TerminallyLazy/Tree-Ring-Memory>
+- Release: <https://github.com/TerminallyLazy/Tree-Ring-Memory/releases/tag/v0.11.0>
+- Launch discussion: <https://github.com/TerminallyLazy/Tree-Ring-Memory/discussions/27>
+
+This tap currently targets the published `darwin-arm64` launch artifact.
