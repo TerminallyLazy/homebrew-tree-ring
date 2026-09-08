@@ -39,7 +39,7 @@ jobs:
 
       - run: brew test-bot --only-setup
 
-      - name: Install upstream ShellCheck on Intel macOS
+      - name: Install upstream lint tools on Intel macOS
         if: matrix.os == 'macos-15-intel'
         run: |
           curl --fail --location --retry 3 --output "$RUNNER_TEMP/shellcheck.tar.gz" \
@@ -49,6 +49,13 @@ jobs:
           # test-bot prepends the Homebrew bin directory to PATH.
           install -m 755 "$RUNNER_TEMP/shellcheck-v0.11.0/shellcheck" "$(brew --prefix)/bin/shellcheck"
           "$(brew --prefix)/bin/shellcheck" --version
+          curl --fail --location --retry 3 --output "$RUNNER_TEMP/actionlint.tar.gz" \
+            https://github.com/rhysd/actionlint/releases/download/v1.7.12/actionlint_1.7.12_darwin_amd64.tar.gz
+          echo "5b44c3bc2255115c9b69e30efc0fecdf498fdb63c5d58e17084fd5f16324c644  $RUNNER_TEMP/actionlint.tar.gz" | shasum --algorithm 256 --check
+          mkdir -p "$RUNNER_TEMP/tree-ring-actionlint"
+          tar -xzf "$RUNNER_TEMP/actionlint.tar.gz" -C "$RUNNER_TEMP/tree-ring-actionlint"
+          install -m 755 "$RUNNER_TEMP/tree-ring-actionlint/actionlint" "$(brew --prefix)/bin/actionlint"
+          "$(brew --prefix)/bin/actionlint" -version
 
       - run: brew test-bot --only-tap-syntax --verbose
       - run: brew test-bot --only-formulae
