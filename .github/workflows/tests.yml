@@ -46,8 +46,9 @@ jobs:
             https://github.com/koalaman/shellcheck/releases/download/v0.11.0/shellcheck-v0.11.0.darwin.x86_64.tar.gz
           echo "c2c15e08df0e8fbc374c335b230a7ee958c313fa5714817a59aa59f1aa594f51  $RUNNER_TEMP/shellcheck.tar.gz" | shasum --algorithm 256 --check
           tar -xzf "$RUNNER_TEMP/shellcheck.tar.gz" -C "$RUNNER_TEMP"
-          echo "$RUNNER_TEMP/shellcheck-v0.11.0" >> "$GITHUB_PATH"
-          "$RUNNER_TEMP/shellcheck-v0.11.0/shellcheck" --version
+          # test-bot prepends the Homebrew bin directory to PATH.
+          install -m 755 "$RUNNER_TEMP/shellcheck-v0.11.0/shellcheck" "$(brew --prefix)/bin/shellcheck"
+          "$(brew --prefix)/bin/shellcheck" --version
 
       - run: brew test-bot --only-tap-syntax --verbose
       - run: brew test-bot --only-formulae
