@@ -19,7 +19,7 @@ AI agents.
 
 - Website: <https://terminallylazy.github.io/Tree-Ring-Memory/>
 - Repository: <https://github.com/TerminallyLazy/Tree-Ring-Memory>
-- Release: <https://github.com/TerminallyLazy/Tree-Ring-Memory/releases/tag/v0.15.2>
+- Release: <https://github.com/TerminallyLazy/Tree-Ring-Memory/releases/latest>
 - Launch discussion: <https://github.com/TerminallyLazy/Tree-Ring-Memory/discussions/27>
 
-This tap currently targets the published `darwin-arm64` launch artifact.
+This tap currently targets the published `darwin-arm64` artifact.
